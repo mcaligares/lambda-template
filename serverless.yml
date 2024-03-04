@@ -10,7 +10,7 @@ provider:
     STAGE: ${env.STAGE, "prod"}
   iam:
     role:
-      name: serverless-ssm-role-${env.STAGE, "prod"}
+      name: serverless-ssm-role-${{ env.STAGE }}
       statements:
         - Effect: 'Allow'
           Resource: '*'
