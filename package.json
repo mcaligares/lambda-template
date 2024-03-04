@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "serverless offline --stage dev",
     "info": "serverless info --stage prod --region us-east-2",
+    "info-dev": "serverless info --stage dev --region us-east-2",
     "deploy": "serverless deploy --stage prod --region us-east-2",
+    "deploy-dev": "serverless deploy --stage dev --region us-east-2",
     "remove": "serverless remove --stage prod --region us-east-2",
     "generate": "drizzle-kit generate:pg --config=src/drizzle.config.js",
     "migrate": "tsx src/cli/migrator.js"
