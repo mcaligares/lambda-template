@@ -16,7 +16,6 @@ app.get("/", async (req, res, next) => {
   const delta = (dbNowResult.now.getTime() - now) / 1000;
 
   return res.status(200).json({
-    message: "Hello from root!",
     delta: delta,
     STAGE
   });
