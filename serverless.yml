@@ -1,4 +1,4 @@
-service: lambda-template
+service: serverless-template
 frameworkVersion: '3'
 useDotenv: true
 
@@ -14,6 +14,12 @@ functions:
     handler: src/index.handler
     events:
       - httpApi: '*'
+
+custom:
+  dotenv:
+    exclude:
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
 
 plugins:
   - serverless-offline
