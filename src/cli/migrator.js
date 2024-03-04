@@ -36,7 +36,7 @@ async function performMigration() {
 }
 
 if (require.main === module) {
-  console.log('run this');
+  console.log('Run Migrations');
   console.log(process.env.AWS_ACCESS_KEY_ID);
   performMigration().then(val => {
     console.log('Migrations done');

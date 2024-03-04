@@ -6,8 +6,8 @@ provider:
   name: aws
   runtime: nodejs20.x
   environment:
-    DEBUG: ${env:DEBUG, 'falllback value'},
-    DATABASE_URL: ${env:DATABASE_URL, 'falllback value'}
+    DEBUG: ${env:DEBUG, 0},
+    STAGE: ${env.STAGE, "prod"}
   iam:
     role:
       name: serverless-ssm-role

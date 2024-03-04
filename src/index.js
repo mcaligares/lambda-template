@@ -5,6 +5,7 @@ const crud = require('./db/crud');
 const validators = require('./db/validators');
 
 const app = express();
+const STAGE = process.env.STAGE || 'prod';
 
 app.use(express.json());
 
@@ -16,7 +17,8 @@ app.get("/", async (req, res, next) => {
 
   return res.status(200).json({
     message: "Hello from root!",
-    delta: delta
+    delta: delta,
+    STAGE
   });
 });
 
