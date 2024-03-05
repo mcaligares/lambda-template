@@ -15,11 +15,8 @@ async function getConnectionString() {
     Name: DATABASE_URL,
     WithDecryption: true
   };
-  console.log('paramStoreData', paramStoreData);
   const command = new GetParameterCommand(paramStoreData);
-  console.log('GetParameterCommand', command);
   const result = await client.send(command);
-  console.log('SSMClientResult', result);
 
   return result.Parameter.Value;
 }
