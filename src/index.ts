@@ -1,8 +1,8 @@
-const express = require("express");
-const serverless = require("serverless-http");
-const { getDbClient } = require('./db/clients');
-const crud = require('./db/crud');
-const validators = require('./db/validators');
+import express from "express";
+import serverless from "serverless-http";
+import { getDbClient } from './db/clients';
+import * as crud from './db/crud';
+import * as validators from './db/validators';
 
 const app = express();
 const STAGE = process.env.STAGE || 'prod';
@@ -12,8 +12,10 @@ app.use(express.json());
 app.get("/", async (req, res, next) => {
   const db = await getDbClient();
   const now = Date.now();
-  const [dbNowResult] = await db`select now()`;
-  const delta = (dbNowResult.now.getTime() - now) / 1000;
+  const result = await db(`select now()`);
+  console.log('result', result);
+  const dbNowResult = result[0].now as Date;
+  const delta = (dbNowResult.getTime() - now) / 1000;
 
   return res.status(200).json({
     datetime: new Date(),
@@ -61,4 +63,4 @@ app.listen(3000, () => {
   console.log('running at localhost:3000')
 });
 
-module.exports.handler = serverless(app);
+export const handler = serverless(app);

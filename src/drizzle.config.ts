@@ -1,5 +1,5 @@
 const config = {
-  schema: './src/db/schemas.js',
+  schema: './src/db/schemas.ts',
   out: './src/migrations',
 };
 
