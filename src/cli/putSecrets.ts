@@ -1,5 +1,4 @@
-// tsx src/cli/putSecret.js <stage> <dbUrl>
-const secrets = require('../lib/secrets');
+import { putDatabaseUrl } from '../lib/secrets';
 require('dotenv').config();
 
 const args = process.argv.slice(2);
@@ -13,7 +12,7 @@ if (require.main === module) {
   console.log('Update database URL');
   const [stage, dbUrl] = args;
 
-  secrets.putDatabaseUrl(stage, dbUrl).then(val => {
+  putDatabaseUrl(stage, dbUrl).then(val => {
     console.log(val);
     console.log('Secret set');
     process.exit(0);

@@ -1,8 +1,8 @@
-const { desc, eq } = require('drizzle-orm');
-const clients = require('./clients');
-const schemas = require('./schemas');
+import { desc, eq } from 'drizzle-orm';
+import * as clients from './clients';
+import * as schemas from './schemas';
 
-async function newLead({ email }) {
+export async function newLead({ email }) {
   const db = await clients.getDrizzleDbClient();
   const result = await db.insert(schemas.LeadTable). values({
     email,
@@ -15,7 +15,7 @@ async function newLead({ email }) {
   return result;
 }
 
-async function listLeads() {
+export async function listLeads() {
   const db = await clients.getDrizzleDbClient();
   const result = await db.select().from(schemas.LeadTable)
     .orderBy(desc(schemas.LeadTable.createdAt))
@@ -24,7 +24,7 @@ async function listLeads() {
   return result;
 }
 
-async function getLead(id) {
+export async function getLead(id) {
   const db = await clients.getDrizzleDbClient();
   const result = await db.select().from(schemas.LeadTable)
     .where(eq(schemas.LeadTable.id, id));
@@ -34,7 +34,3 @@ async function getLead(id) {
   }
   return null;
 }
-
-module.exports.newLead = newLead;
-module.exports.getLead = getLead;
-module.exports.listLeads = listLeads;
