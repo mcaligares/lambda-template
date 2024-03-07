@@ -10,8 +10,8 @@
     "deploy-dev": "serverless deploy --stage dev --region us-east-2",
     "remove": "serverless remove --stage prod --region us-east-2",
     "generate": "drizzle-kit generate:pg --config=src/drizzle.config.ts",
-    "migrate": "STAGE=prod tsx src/cli/migrator.ts",
-    "migrate-dev": "STAGE=dev tsx src/cli/migrator.ts"
+    "migrate": "STAGE=prod tsx cli/migrator.ts",
+    "migrate-dev": "STAGE=dev tsx cli/migrator.ts"
   },
   "dependencies": {
     "@aws-sdk/client-ssm": "^3.525.0",

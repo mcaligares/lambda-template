@@ -1,6 +1,6 @@
 const config = {
   schema: './src/db/schemas.ts',
-  out: './src/migrations',
+  out: './migrations',
 };
 
 export default config;
