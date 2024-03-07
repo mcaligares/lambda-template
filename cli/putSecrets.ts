@@ -1,10 +1,10 @@
-import { putDatabaseUrl } from '../lib/secrets';
+import { putDatabaseUrl } from '../src/lib/secrets';
 require('dotenv').config();
 
 const args = process.argv.slice(2);
 
 if (args.length !== 2) {
-  console.log('Usage: tsx src/cli/putSecret.js <stage> <dbUrl>')
+  console.log('Usage: tsx cli/putSecret.js <stage> <dbUrl>')
   process.exit(1);
 }
 
